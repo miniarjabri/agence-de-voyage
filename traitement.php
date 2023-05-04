@@ -5,30 +5,26 @@ $username = "root";
 $password = "";
 $dbname = "account";
 
-  // Connexion à la base de données
-  // Connexion à la base de données
-$bdd = new PDO('mysql:host=localhost;dbname=account;charset=utf8', 'root', '');
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+// Récupération des données du formulaire
+$nom = $_POST['nom'] ?? '';
+$prenom = $_POST['prenom'] ?? '';
+$email = $_POST['email'] ?? '';
+$telephone = $_POST['telephone'] ?? '';
+$prefixe = $_POST['prefixe'] ?? '';
+$nombre_adultes = $_POST['nombre_adultes'] ?? 0;
+$nombre_enfants = $_POST['nombre_enfants'] ?? 0;
 
-  // Récupération des données du formulaire
-  $nom = $_POST['nom'];
-  $email = $_POST['email'];
-  $telephone = $_POST['prefixe'].$_POST['telephone'];
-  $nombre_adultes = $_POST['nombre_adultes'];
-  $nombre_enfants = $_POST['nombre_enfants'];
-  
-  // Préparation de la requête d'insertion
-  $req = $bdd->prepare('INSERT INTO forum(nom, email, telephone, nombre_adultes, nombre_enfants) VALUES(:nom, :email, :telephone, :nombre_adultes, :nombre_enfants)');
+// Préparation de la requête d'insertion
+$req = $conn->prepare('INSERT INTO forum(nom, prenom, email, prefixe, telephone, nombre_adultes, nombre_enfants) VALUES(?, ?, ?, ?, ?, ?, ?)');
 
-  // Exécution de la requête avec les données du formulaire
-  $req->execute(array(
-    'nom' => $nom,
-    'email' => $email,
-    'telephone' => $telephone,
-    'nombre_adultes' => $nombre_adultes,
-    'nombre_enfants' => $nombre_enfants
-  ));
+// Exécution de la requête avec les données du formulaire
+$req->bind_param('ssssiii', $nom, $prenom, $email, $prefixe, $telephone, $nombre_adultes, $nombre_enfants);
+$req->execute();
 
-  // Redirection vers la page de confirmation
-  header('Location: confirmation.php');
+// Redirection vers la page de confirmation
+header('Location: confirmation.php');
 ?>
+
