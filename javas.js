@@ -8,10 +8,8 @@ function scrollFunction() {
   }
 }
 
-var images = ["https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80", "b9eb62ba212da8834249ea92b1a32e24.jpg","b0ac75514152ce936c9b8ffeaae133bc.jpg"]; // tableau contenant les chemins d'accès des images
+var images = ["https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80","https://i.pinimg.com/736x/14/31/6f/14316f6fcd04b8edb51719b13d50def2.jpg","https://cdn.concreteplayground.com/content/uploads/2022/12/jezael-melgoza-alY6_OpdwRQ-unsplash.jpg","https://cdn.wallpapersafari.com/10/53/UH4FAw.jpg","https://e0.pxfuel.com/wallpapers/484/378/desktop-wallpaper-beach-mac-beach.jpg"]; // tableau contenant les chemins d'accès des images
 var currentImageIndex = 0; // index de l'image actuelle
-var scroll_main_image_prev=document.getElementsById("b1");
-var scroll_main_image_next=document.getElementsById("b2");
 
 function ChangeImage1(){
   var image = document.getElementById("main-image");
