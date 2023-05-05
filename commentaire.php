@@ -188,22 +188,25 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row">
 
         <div class="local-col">
-            <img src="photo\tour-dhorloge.jpg" >
+            <<a href="https://goo.gl/maps/AB74ushsGPGYqiYe9">
+            <img src="photo\tour-dhorloge.jpg"  >
             <div class="layer">
                 <h3>Tunis</h3>
-            </div>
+                </div></a>
         </div>
         <div class="local-col">
+            <a href="https://goo.gl/maps/WMMVY886wmNyg6Rr5">
             <img src="photo\sousse.jpg"  >
             <div class="layer">
                 <h3>Sousse</h3>
-            </div>
+            </div></a>
         </div>
         <div class="local-col">
+            <a href="https://goo.gl/maps/5dxA6yGedz2jFsbg7">
             <img src="photo\sfax.jpg"  >
             <div class="layer">
                 <h3>Sfax </h3>
-            </div>
+            </div></a>
         </div>
     </div>
 </section>
