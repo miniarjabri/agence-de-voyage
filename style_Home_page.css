@@ -2,14 +2,14 @@
 nav {
     display: flex;/*horizontal*/
      justify-content: center;/*au centre*/
-			
-			height: 70px;
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			z-index: 9999;
-      transition: background-color 0.3s ease-in-out;
+     background-color:#444;
+     height: 70px;
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 9999;
+     transition: background-color 0.3s ease-in-out;
 		
   }
   nav a {
@@ -28,13 +28,6 @@ nav {
     color:#444;
     transform: scale(1.07);
   }
-  nav.active{
-   background-color:#444;
-    height: 70px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 head > link[rel="shortcut icon"] {
   width: 100px;
@@ -107,9 +100,11 @@ font-style:italic;
 /*MAIN IMAGE */
 #main-image {
   position: relative;
-  height: 600px;
+  height: 670px;
   width:100%;
-  background: url('ee700645073ad37721b1697f37b87d1a.jpg') center ;
+  background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80') no-repeat center ;
+  background-size: cover;
+  
   
 #main-image h2 {
   font-weight:normal;
