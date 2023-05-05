@@ -14,13 +14,13 @@ nav {
   }
   nav a {
     display: block;
-    padding: 17px 20px;/*distance between*/
+    padding: 20px 20px;/*distance between*/
     color:#ffffffff;
     font-weight: bolder;
     text-decoration:dotted;
     font-size: 19px;
     border-bottom: 2px solid transparent;
-    transition: all 0.2s ease     /*time to changer quand active*/
+    transition: all 0.2s ease   
   }
   nav a:hover,
   nav a:focus {
@@ -30,7 +30,7 @@ nav {
   }
   nav.active{
    background-color:#444;
-    height: 65px;
+    height: 70px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -111,28 +111,30 @@ font-style:italic;
   width:100%;
   background: url('ee700645073ad37721b1697f37b87d1a.jpg') center ;
   
- 
-}
-.slide-in {
-  transform: translateX(100%);
-}
-
-.slide-out {
-  transform: translateX(-100%);
-}
-
 #main-image h2 {
   font-weight:normal;
   text-transform: uppercase;
   text-align: center;
-  padding: 150px 0 40px 0;
-  margin-bottom: 20px;
+  margin-top:50px;
+  padding-bottom: 20px;
+ 
 }
 .wrapper a{
   color: #ffffff;
-  
-  
 }
+	
+.wrapper .container{
+  background-color: rgba(237, 224, 224, 0.908); 
+  opacity: 0.9;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  text-align: center;
+}
+	
 .button-1 { 
   display:block;
   width:120px;
@@ -179,17 +181,21 @@ width:300px;
   margin-bottom: 20px;
 }
 #step-1 { 
-background: url('00b13c323711cbb9509f8a7878c9b19c11.jpg') no-repeat top center ;
+background: url("Capture d’écran 2023-05-05 181831.png") no-repeat top center ;
+padding-right: 20px;
+
 } 
 #step-2 {  
   
-background:  url('00b13c323711cbb9509f8a7878c9b19c11.jpg') no-repeat top center ;
+background:  url("Capture d’écran 2023-05-05 181920.png") no-repeat top center ;
+padding-right: 20px;
+
 } 
 
 #step-3 { 
-background:  url('00b13c323711cbb9509f8a7878c9b19c11.jpg') no-repeat top center ;
+background:  url("Capture d’écran 2023-05-05 185032.png") no-repeat top center ;
+padding-right: 20px;
 }  
-
 /*Trending Tours*/
 
 #Tours { 
