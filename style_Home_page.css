@@ -50,6 +50,51 @@ head > link[rel="shortcut icon"] {
   font-weight: bold;
   font-size:2rem;
 }
+.d-flex {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  left:87%;
+  
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-image: url('https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg');
+  background-size: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown-menu {
+  display: block;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
 
   /* GENERAL*/
  
