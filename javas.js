@@ -28,7 +28,19 @@ function ChangeImage2(){
   image.style.backgroundSize = "100% 100%";
   image.style.animation='scroll 10s linear infinite';
 };
+function toggleDropdown() {
+  var dropdown = document.querySelector(".dropdown");
+  dropdown.classList.toggle("show");
+}
 
+function showDropdown() {
+  var dropdown = document.querySelector(".dropdown");
+  dropdown.classList.add("show");
+}
+function hideDropdown() {
+  var dropdown = document.getElementById("dropdownMenu");
+  dropdown.classList.remove("show");
+}
 
 
 
