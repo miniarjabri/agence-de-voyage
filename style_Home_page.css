@@ -159,7 +159,7 @@ font-style:italic;
   padding-bottom: 20px;
  
 }
-.wrapper a{
+#main-image .wrapper a{
   color: #ffffff;
 }
 	
@@ -248,20 +248,24 @@ padding: 10 px 0px 10px;
   flex-wrap: nowrap;
   justify-content: space-between;
   gap: 30px;
-  background-size: 320px 280px;
-  
+  background-size: 400px 280px;
+  margin: 20px;
   
 } 
 #Tours article {
   position: relative;
   background-size:100% 100%;
-  width:400px ; 
+  width:300px ; 
   height:300px;
   margin-bottom: 15px;
   border-radius:10px 10px 10px 10px;
   transition: background-size 0.25s ease-in-out;
 
 } 
+#Tours .wrapper a{
+  color: #444;
+  margin: 10px;
+}
 
 #Tours .wrapper :hover , 
 #Tours .wrapper :focus {
