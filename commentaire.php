@@ -47,36 +47,37 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="javas.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style_Home_page.css"/>
+
+    <link rel="shortcut icon" type="image/png" href="343517889_1726399304443518_1615111089597620589_n.png" />
 
 </head>
-<body>
+
 <header>
-    <div class="principale" >
-        <div class="logo">
-            <a href="#"><span>E</span>xp<span>l</span>oria</a>
+    <nav>
+        <div class="principale" >
+            <div class="logo">
+                <a href="#"><span>E</span>xp<span>l</span>oria</a>
+            </div>
         </div>
-    </div>
-    <ul>
-        <li >
-            <a href="#">acceuil</a>
-        </li>
-        <li>
-            <a href="#">service</a>
-        </li>
-        <li>
-            <a href="#">blog</a>
-        </li>
-        <li class="active">
-            <a href="#">a propos de nous</a>
-        </li>
-        <li>
-            <a href="#">contact</a>
-        </li>
-    </ul></div>
-    <div class="titre">
-        <h1>A propos de nous </h1>
-    </div>
+        <a href="index1.html">Home</a>
+        <a href="packages.php">Packages</a>
+        <a href="commentaire.php">About us</a>
+        <div class="d-flex"  >
+            <div class="avatar" onmouseover="showDropdown()" onclick="toggleDropdown()">
+            </div>
+            <div class="dropdown" id="dropdownMenu">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" onmouseleave="hideDropdown()">
+                    <a class="dropdown-item" href="sign_in.php" >Sign In</a>
+                    <a class="dropdown-item" href="create_account.php" >Login</a>
+                </div>
+            </div>
+    </nav>
 </header>
+
+<body>
 <!--en savoir plus-->
 <section class="home-about">
     <div class="image">
@@ -87,20 +88,16 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         <p>Vous cherchez à voyager ? Nous sommes là pour vous aider ! Notre agence de voyage propose des destinations de rêve, des conseils d'experts et des services personnalisés pour vous aider à planifier le voyage parfait. Nous sommes passionnés par les voyages et nous voulons partager cette passion avec vous. Nous nous efforçons de vous offrir une expérience de voyage inoubliable et nous nous engageons à vous aider à créer des souvenirs qui dureront toute une vie.
 
             Faites-nous confiance pour votre prochaine aventure et laissez-nous vous aider à réaliser votre rêve de voyage.Cliquez ici dès maintenant pour planifier votre prochaine aventure !</p>
-        <a href ="#" class="btn">En savoir plus</a>
+        <a href ="packages.php" class="btn">En savoir plus</a>
 
     </div>
 </section>
-
-
 <!--review section-->
 <section class="review" id="review">
     <h1 class="heading">Review</h1>
     <div class="swiper review-slider">
         <div class="swiper-wrapper">
             <?php
-            $id = 1;
-
             // Connect to the database
             $servername = "localhost";
             $username = "root";
@@ -112,35 +109,36 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Retrieve data from the database
-            $sql = "SELECT * FROM comments WHERE id=$id";
+            $sql = "SELECT * FROM comments";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                $counter = 0;
-                while (($row = $result->fetch_assoc()) && ($counter < $result->num_rows)) {
+                $id = 1; // Start ID
+                while ($row = $result->fetch_assoc()) {
+                    // Extract data from the current row
                     $nom = $row["nom"];
                     $nombre_etoile = $row["nombre_etoile"];
                     $commentaire = $row["commentaire"];
                     $profile_picture = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
+                    // Generate HTML code for the review
                     echo '<div class="swiper-slide">
-                <div class="box">
-                    <img src="' . $profile_picture . '">
-                    <h3>' . $nom . '</h3>
-                    <p>' . $commentaire . '</p>
-                    <div class="stars">';
-                    for ($i = 0; $i < 5; $i++) {
-                        if ($i < $nombre_etoile) {
-                            echo '<i class="fas fa-star"></i>';
-                        } else {
-                            echo '<i class="far fa-star"></i>';
-                        }
+                        <div class="box">
+                            <img src="' . $profile_picture . '">
+                            <h3>' . $nom . '</h3>
+                            <p>' . $commentaire . '</p>
+                            <div class="stars">';
+                    for ($i = 0; $i < $nombre_etoile; $i++) {
+                        echo '<i class="fas fa-star"></i>';
                     }
-                    echo '          </div>
-                </div>
-            </div>';
+                    for ($i = $nombre_etoile; $i < 5; $i++) {
+                        echo '<i class="far fa-star"></i>';
+                    }
+                    echo '</div>
+                        </div>
+                    </div>';
 
-                    $counter++;
+                    $id++; // Increment ID
                 }
             } else {
                 echo "0 results";
@@ -149,10 +147,10 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
             // Close the database connection
             $conn->close();
             ?>
-
         </div>
     </div>
 </section>
+
 
 <div class="commentaires">
     <h2>Ajouter un commentaire</h2>
@@ -188,28 +186,71 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row">
 
         <div class="local-col">
-            <<a href="https://goo.gl/maps/AB74ushsGPGYqiYe9">
-            <img src="photo\tour-dhorloge.jpg"  >
+            <img src="photo\tour-dhorloge.jpg" >
             <div class="layer">
                 <h3>Tunis</h3>
-                </div></a>
+            </div>
         </div>
         <div class="local-col">
-            <a href="https://goo.gl/maps/WMMVY886wmNyg6Rr5">
             <img src="photo\sousse.jpg"  >
             <div class="layer">
                 <h3>Sousse</h3>
-            </div></a>
+            </div>
         </div>
         <div class="local-col">
-            <a href="https://goo.gl/maps/5dxA6yGedz2jFsbg7">
             <img src="photo\sfax.jpg"  >
             <div class="layer">
                 <h3>Sfax </h3>
-            </div></a>
+            </div>
         </div>
     </div>
 </section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <h4>À propos</h4>
+                <ul>
+                    <li><a href="#">Notre agence</a></li>
+                    <li><a href="#">Notre équipe</a></li>
+                    <li><a href="#">Témoignages clients</a></li>
+                    <li><a href="#">Nos partenaires</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h4>Nos services</h4>
+                <ul>
+                    <li><a href="#">Réservation d'hôtels</a></li>
+                    <li><a href="#">Réservation de vols</a></li>
+                    <li><a href="#">Location de voitures</a></li>
+                    <li><a href="#">Activités touristiques</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h4>Contactez-nous</h4>
+                <ul>
+                    <li><a href="#">Nous contacter</a></li>
+                    <li><a href="#">Demande de devis</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h4>Restez informés!</h4>
+                <div class="social-media">
+                    <div>
+                        <di id="ab"><a href="https://www.instagram.com/votre_nom_dutilisateur/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="25px" height="25px"></a>
+                        </di>
+                        <a href="https://www.facebook.com/votre_nom_dutilisateur/"> <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-facebook-social-media-icon-png-image_6315968.png" alt="Facebook" width="27px" height="27px" ></a>
+                        <a href="https://www.twitter.com/votre_nom_dutilisateur/"> <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png" alt="Twitter" width="27px" height="27px" ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr >
+        <div class="copyright"> Copyright © Tous droits réservés.</div>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
