@@ -36,7 +36,9 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
         $conn->close();
     }}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,18 +50,14 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <script src="javas.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style_Home_page.css"/>
-
-    <link rel="shortcut icon" type="image/png" href="343517889_1726399304443518_1615111089597620589_n.png" />
 
 </head>
-
+<body>
 <header>
     <nav>
         <div class="principale" >
             <div class="logo">
-                <a href="#"><span>E</span>xp<span>l</span>oria</a>
+                <a href="index1.html"><span>E</span>xp<span>l</span>oria</a>
             </div>
         </div>
         <a href="index1.html">Home</a>
@@ -75,9 +73,12 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
     </nav>
+    <div class="titre">
+        <h1>A propos de nous </h1>
+    </div>
 </header>
+<section class="gimage"></section>
 
-<body>
 <!--en savoir plus-->
 <section class="home-about">
     <div class="image">
@@ -119,11 +120,11 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                     $nom = $row["nom"];
                     $nombre_etoile = $row["nombre_etoile"];
                     $commentaire = $row["commentaire"];
-                    $profile_picture = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+                    $profile_picture = $row["profile_picture"];;
 
                     // Generate HTML code for the review
                     echo '<div class="swiper-slide">
-                        <div class="box">
+                            <div class="box">
                             <img src="' . $profile_picture . '">
                             <h3>' . $nom . '</h3>
                             <p>' . $commentaire . '</p>
@@ -151,7 +152,6 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </section>
 
-
 <div class="commentaires">
     <h2>Ajouter un commentaire</h2>
     <form action="commentaire.php" method="post">
@@ -174,6 +174,9 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Envoyer">
     </form>
 </div>
+
+
+<!--localisation-->
 <section class="local">
     <h1>
         Vous pouvez nous trouvez !
@@ -186,30 +189,34 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row">
 
         <div class="local-col">
-            <img src="photo\tour-dhorloge.jpg" >
-            <div class="layer">
-                <h3>Tunis</h3>
-            </div>
+            <a href="https://goo.gl/maps/AB74ushsGPGYqiYe9">
+                <img src="photo\tour-dhorloge.jpg" >
+                <div class="layer">
+                    <h3>Tunis</h3>
+                </div></a>
         </div>
         <div class="local-col">
-            <img src="photo\sousse.jpg"  >
-            <div class="layer">
-                <h3>Sousse</h3>
-            </div>
+            <a href="https://goo.gl/maps/WMMVY886wmNyg6Rr5">
+                <img src="photo\sousse.jpg"  >
+                <div class="layer">
+                    <h3>Sousse</h3>
+                </div></a>
         </div>
         <div class="local-col">
-            <img src="photo\sfax.jpg"  >
-            <div class="layer">
-                <h3>Sfax </h3>
-            </div>
+            <a href="https://goo.gl/maps/5dxA6yGedz2jFsbg7">
+                <img src="photo\sfax.jpg"  >
+                <div class="layer">
+                    <h3>Sfax </h3>
+                </div></a>
         </div>
     </div>
 </section>
 
+
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6">
+            <div class="column">
                 <h4>À propos</h4>
                 <ul>
                     <li><a href="#">Notre agence</a></li>
@@ -218,7 +225,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a href="#">Nos partenaires</a></li>
                 </ul>
             </div>
-            <div class="col-md-3 col-sm-6">
+            <div class="column">
                 <h4>Nos services</h4>
                 <ul>
                     <li><a href="#">Réservation d'hôtels</a></li>
@@ -227,7 +234,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a href="#">Activités touristiques</a></li>
                 </ul>
             </div>
-            <div class="col-md-3 col-sm-6">
+            <div class="column">
                 <h4>Contactez-nous</h4>
                 <ul>
                     <li><a href="#">Nous contacter</a></li>
@@ -235,7 +242,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
-            <div class="col-md-3 col-sm-6">
+            <div class="column">
                 <h4>Restez informés!</h4>
                 <div class="social-media">
                     <div>
