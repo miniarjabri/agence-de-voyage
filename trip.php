@@ -47,7 +47,91 @@ $servername = "localhost";
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style_Home_page.css"/>
+    <link rel="shortcut icon" type="image/png" href="343517889_1726399304443518_1615111089597620589_n.png" />
+    <script src="javas.js"></script>
     <style>
+        body {
+            background-image: url('https://i.pinimg.com/736x/a6/21/6e/a6216eb07f5871a10dc696e7494c80c6.jpg');
+            background-size: cover;
+        }
+
+        .container {
+            border: 2px solid darkgray;
+            padding: 20px;
+            color: white;
+        }
+
+        .form-control {
+            background-color: white;
+            color: black;
+        }
+
+        .btn-primary {
+            background-color: darkred;
+            border-color: darkred;
+            color: white;
+        }
+
+        h1, label {
+            color: black;
+        }
+        nav {
+            display: flex;/*horizontal*/
+            justify-content: center;/*au centre*/
+            background-color:#444;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            transition: background-color 0.3s ease-in-out;
+
+        }
+        nav a {
+            display: block;
+            padding: 20px 20px;/*distance between*/
+            color:#ffffffff;
+            font-weight: bolder;
+            text-decoration:dotted;
+            font-size: 19px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease
+        }
+        nav a:hover,
+        nav a:focus {
+            background-color: #ddd;
+            color:#444;
+            transform: scale(1.07);
+        }
+        ead > link[rel="shortcut icon"] {
+            width: 100px;
+            height: 100px;
+        }
+        .logo a{
+            color: white;
+            padding:0px 20px;
+            border:1px solid #fff;
+            position: absolute;
+            top:10px;
+            left:10px;
+            text-transform:uppercase ;
+            text-decoration: none;
+            font-weight:900 ;
+            text-shadow: rgba(0  ,0 ,0, 0.7);
+        }
+        .logo span {
+            color:#b64332;
+            font-weight: bold;
+            font-size:2rem;
+        }
+        div.container {
+            margin-top: 80px; /* Ajustez cette valeur selon vos besoins */
+        }
+
+
         .my-scrollable-section {
             max-height: 400px;
         }
@@ -72,45 +156,40 @@ $servername = "localhost";
 
 <body>
 
-<!--Navigation bar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">Voyage en <?php echo $titre; ?></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Accueil
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">À propos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<header>
+    <nav>
+        <div class="principale" >
 
-<!-- Header -->
-<header class="header">
-    <!-- titre ajouter php -->
-    <h1 class="display-3">Découvrez <?php echo $titre; ?></h1>
-    <!-- prix ajouter php -->
-    <!-- prix aprés remise ajouter php -->
-    <!-- prix avant remise ajouter php -->
-    <!-- remise % ajouter php -->
-    <p class="lead mb-0">à partir de <?php echo $prix_apres; ?> dt au lieu de <?php echo $prix_avant; ?> dt </p>
-    <p>-<?php echo $remise; ?> %</p>
-    <a href="#" class="btn btn-primary mt-4">Réserver</a>
+            <div class="logo">
+                <a href="index1.html"><span>E</span>xp<span>l</span>oria</a>
+            </div>
+
+        </div>
+        <a href="index1.html">Home</a>
+        <a href="packages.php">Packages</a>
+        <a href="commentaire.php">About us</a>
+        <div class="d-flex"  >
+            <div class="avatar" onmouseover="showDropdown()" onclick="toggleDropdown()">
+            </div>
+            <div class="dropdown" id="dropdownMenu">
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                    <a class="dropdown-item" href="sign_in.php" >Sign In</a>
+                    <a class="dropdown-item" href="create_account.php" >Login</a>
+                </div>
+
+            </div>
+    </nav>
 </header>
 
+<!-- Header -->
+
+<header class="header" style="background-color: black">
+    <h1 class="display-3 text-red" style="background-color: black; color: #b64332; padding: 10px; border-radius: 5px; font-weight: bold;">Découvrez <?php echo $titre; ?></h1>
+    <h4 class="lead mb-0 text-red" style="background-color: black; color: #b64332; padding: 5px; border-radius: 3px; font-weight: bold;">à partir de <?php echo $prix_apres; ?> dt au lieu de <?php echo $prix_avant; ?> dt</h4>
+    <p class="text-red" style="background-color: black; color: #b64332; padding: 3px; border-radius: 3px; font-weight: bold;">-<?php echo $remise; ?> %</p>
+    <a href="formulaire.php" class="btn btn-primary mt-4" style="background-color: #b64332; color: white; font-weight: bold; border-radius: 5px; padding: 10px 20px;">Réserver</a>
+</header>
 
 <div class="container my-5">
     <h2 class="mb-4">Description du voyage</h2>
@@ -149,22 +228,16 @@ $servername = "localhost";
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Détails du voyage</h5>
-
-                    <!-- prix aprés remise ajouter php -->
-                    <!-- prix avant remise ajouter php -->
-                    <!-- remise % ajouter php -->
-                    <p class="card-text">A partir de <?php echo $prix_apres; ?> dt /pers</p>
-                    <!-- destination ajouter php -->
-                    <p class="card-text">DESTINATION : <?php echo $Destination; ?></p>
-                    <!-- nombre de jours ajouter php -->
-                    <p class="card-text">NOMBRE DE NUIT : <?php echo $Nombre_de_nuits; ?> </p>
-                    <p class="card-text">NOMBRE DE JOURS : <?php echo $Nombre_de_nuits + 1; ?> </p>
-                    <h3>DU <?php echo $Date_darrivée; ?> </h3>
-                    <h3>AU <?php echo $Date_de_sortie; ?> </h3>
-
+                    <p class="card-text price">A partir de <?php echo $prix_apres; ?> dt /pers</p>
+                    <p class="card-text">DESTINATION: <?php echo $Destination; ?></p>
+                    <p class="card-text">NOMBRE DE NUIT: <?php echo $Nombre_de_nuits; ?></p>
+                    <p class="card-text">NOMBRE DE JOURS: <?php echo $Nombre_de_nuits + 1; ?></p>
+                    <h3 class="date">DU <?php echo $Date_darrivée; ?></h3>
+                    <h3 class="date">AU <?php echo $Date_de_sortie; ?></h3>
                 </div>
             </div>
         </div>
+
     </div>
     <div class="row">
         <!-- destination ajouter php -->
@@ -183,80 +256,72 @@ $servername = "localhost";
         <div class="col-md-6">
             <h3>Détails sur le pix</h3>
             <!-- details sur le prix ajouter php -->
-            <h5>Le prix comprend:</h5>
-            <p><?php echo $le_prix_comprend; ?></p>
-            <h5>Le prix ne comprend pas:</h5>
-            <p><?php echo $Le_prix_ne_comprend_pas; ?></p>
+            <h5 style="font-weight: bold; color: black;">Le prix comprend:</h5>
+            <p  ><?php echo $le_prix_comprend; ?></p>
+            <h5 style="font-weight: bold; color: black;">Le prix ne comprend pas:</h5>
+            <p  ><?php echo $Le_prix_ne_comprend_pas; ?></p>
 
 
         </div>
     </div>
 
     <div class="row">
-        <p>Réservez dès maintenant pour profiter de cette offre exceptionnelle !</p>
-        <a href="#" class="btn btn-primary mt-4">Réserver</a>
+        <h1>Réservez dès maintenant pour profiter de cette offre exceptionnelle !</h1>
+        <a href="formulaire.php" class="btn btn-primary mt-4" style="background-color: #b64332; color: white; font-weight: bold; border-radius: 5px; padding: 10px 20px;" class="btn btn-primary mt-4">Réserver</a>
     </div>
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
+    <footer>
+        <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Informations sur le voyage</h5>
-                    <p class="text-muted">Ce voyage est organisé par notre agence de voyages spécialisée
-                        dans les circuits en Italie. Nous offrons des expériences de voyage uniques et inoubliables
-                        pour les voyageurs du monde entier.</p>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Liens utiles</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#">Conditions générales de vente</a>
-                        </li>
-                        <li>
-                            <a href="#">Politique de confidentialité</a>
-                        </li>
-                        <li>
-                            <a href="#">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="#">Nous contacter</a>
-                        </li>
+                <div class="col-md-3 col-sm-6">
+                    <h4>À propos</h4>
+                    <ul>
+                        <li><a href="#">Notre agence</a></li>
+                        <li><a href="#">Notre équipe</a></li>
+                        <li><a href="#">Témoignages clients</a></li>
+                        <li><a href="#">Nos partenaires</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Suivez-nous</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#" class="me-4">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="me-4">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="me-4">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="me-4">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </li>
+                <div class="col-md-3 col-sm-6">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li><a href="#">Réservation d'hôtels</a></li>
+                        <li><a href="#">Réservation de vols</a></li>
+                        <li><a href="#">Location de voitures</a></li>
+                        <li><a href="#">Activités touristiques</a></li>
                     </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <h4>Contactez-nous</h4>
+                    <ul>
+                        <li><a href="#">Nous contacter</a></li>
+                        <li><a href="#">Demande de devis</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <h4>Restez informés!</h4>
+                    <div class="social-media">
+                        <div>
+                            <di id="ab"><a href="https://www.instagram.com/votre_nom_dutilisateur/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="25px" height="25px"></a>
+                            </di>
+                            <a href="https://www.facebook.com/votre_nom_dutilisateur/"> <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-facebook-social-media-icon-png-image_6315968.png" alt="Facebook" width="27px" height="27px" ></a>
+                            <a href="https://www.twitter.com/votre_nom_dutilisateur/"> <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png" alt="Twitter" width="27px" height="27px" ></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            <p class="text-muted mb-0">© 2023 Tous droits réservés | Agence de voyages Italia Tour</p>
+            <hr >
+            <div class="copyright"> Copyright © Tous droits réservés.</div>
         </div>
     </footer>
+
     <!-- Bootstrap 5 JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-jDkPXyTThT1+7f1wJcZImmd/LPqoqfaw2aP6hKKpw6Xk41M+v4ew6b4rgCKEzJxU"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
